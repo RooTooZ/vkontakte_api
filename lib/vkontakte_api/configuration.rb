@@ -20,29 +20,29 @@ module VkontakteApi
       :log_responses,
       :api_version
     ]
-    
+
     attr_accessor *OPTION_NAMES
-    
+
     alias_method :log_requests?,  :log_requests
     alias_method :log_errors?,    :log_errors
     alias_method :log_responses?, :log_responses
-    
+
     # Default HTTP adapter.
     DEFAULT_ADAPTER = Faraday.default_adapter
-    
+
     # Default HTTP verb for API methods.
     DEFAULT_HTTP_VERB = :post
-    
+
     # Default max retries count.
     DEFAULT_MAX_RETRIES = 2
-    
+
     # Logger default options.
     DEFAULT_LOGGER_OPTIONS = {
       requests:  true,
       errors:    true,
       responses: false
     }
-    
+
     # A global configuration set via the block.
     # @example
     #   VkontakteApi.configure do |config|
@@ -53,7 +53,7 @@ module VkontakteApi
       yield self if block_given?
       self
     end
-    
+
     # Reset all configuration options to defaults.
     def reset
       @adapter         = DEFAULT_ADAPTER
@@ -66,7 +66,7 @@ module VkontakteApi
       @log_responses   = DEFAULT_LOGGER_OPTIONS[:responses]
       @api_version     = nil
     end
-    
+
     # When this module is extended, set all configuration options to their default values.
     def self.extended(base)
       base.reset

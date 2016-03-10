@@ -24,5 +24,6 @@ VkontakteApi.configure do |config|
   # config.log_responses = false
 end
 
+# VkontakteApi.add_application('123', 'abCdE4799', 'blank.html') 
 # create a short alias VK for VkontakteApi module
 # VkontakteApi.register_alias
